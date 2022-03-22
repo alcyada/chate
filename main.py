@@ -1,4 +1,4 @@
-from pyrogram import Client, filters
+from pyrogram import Client, filters ,idle
 from pyrogram.types import *
 from pymongo import MongoClient
 import requests
@@ -82,4 +82,4 @@ async def kukiai(client: Client, message: Message):
 
 
 bot.run()
-
+idle()
