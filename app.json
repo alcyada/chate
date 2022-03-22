@@ -4,8 +4,8 @@
     "logo": "https://telegra.ph/file/a54ed27b0dc3fc3e439fd.jpg",
     "repository": "https://github.com/MoeZilla/kukichatbot",
     "env": {
-        "BOT_TOKEN": {
-            "description": "telegram bot token here",
+        "STRING_SESSION": {
+            "description": "telegram string session here",
             "required": true
         },
         "MONGO_URL": {
