@@ -8,15 +8,14 @@ import re
 
 API_ID = os.environ.get("API_ID", None) 
 API_HASH = os.environ.get("API_HASH", None) 
-BOT_TOKEN = os.environ.get("TOKEN", None) 
-MONGO_URL = os.environ.get("KUKI_KEY", None)
+STRING_SESSION = os.environ.get("STRING_SESSION", None) 
+MONGO_URL = os.environ.get("MONGO_URL", None)
 
 
 bot = Client(
-    "KukiBot" ,
+    STRING_SESSION,
     api_id = API_ID,
     api_hash = API_HASH ,
-    bot_token = BOT_TOKEN
 )
 
 async def is_admins(chat_id: int):
@@ -141,44 +140,6 @@ async def kukiai(client: Client, message: Message):
   await client.send_chat_action(message.chat.id, "typing")
   await message.reply_text(moezilla)
 
-
-
-
-
-@bot.on_message(filters.command(["start"], prefixes=["/", "!"]))
-async def start(client, message):
-    self = await bot.get_me()
-    busername = self.username
-    if message.chat.type != "private":
-        buttons = InlineKeyboardMarkup(
-            [[InlineKeyboardButton(text="Click here",
-                url=f"t.me/kukichatbot?start")]])
-        await message.reply("Contact me in PM",
-                            reply_markup=buttons)
-        
-    else:
-        buttons = [[InlineKeyboardButton("Support", url="https://t.me/metavoidsupport"),
-                    InlineKeyboardButton("Channel", url="https://t.me/metavoid"),
-                    InlineKeyboardButton("Repo", url="https://github.com/metavoidteam/kukichatbot")
-                    ]]
-        Photo = "https://telegra.ph/file/b04509cc8486f23690bba.jpg"
-        await message.reply_photo(Photo, caption=f"Hello [{message.from_user.first_name}](tg://user?id={message.from_user.id}), Machine Learning Chat Bot that can talk about any topic in any language\n /help - Help Commands\n Powered By @MetaVoid", reply_markup=InlineKeyboardMarkup(buttons))
-
-
-
-@bot.on_message(filters.command(["help"], prefixes=["/", "!"]))
-async def help(client, message):
-    self = await bot.get_me()
-    busername = self.username
-    if message.chat.type != "private":
-        buttons = InlineKeyboardMarkup(
-            [[InlineKeyboardButton(text="Click here",
-                url=f"t.me/kukichatbot?start=help_")]])
-        await message.reply("Contact me in PM",
-                            reply_markup=buttons)
-        
-    else:    
-        await message.reply_text("/start - Start The Bot\n/chat - Send a message to this bot\n/setupchat - Active Kuki Chatbot In Group\n/removechat - Disable Kuki Chatbot In Group")
 
 
 
