@@ -9,8 +9,6 @@ import re
 API_ID = os.environ.get("API_ID", None) 
 API_HASH = os.environ.get("API_HASH", None) 
 STRING_SESSION = os.environ.get("STRING_SESSION", None) 
-MONGO_URL = os.environ.get("MONGO_URL", None)
-
 
 bot = Client(
     STRING_SESSION,
