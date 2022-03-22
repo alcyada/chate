@@ -18,61 +18,6 @@ bot = Client(
     api_hash = API_HASH ,
 )
 
-async def is_admins(chat_id: int):
-    return [
-        member.user.id
-        async for member in bot.iter_chat_members(
-            chat_id, filter="administrators"
-        )
-    ]
-
-
-@bot.on_message(
-    filters.command("setupchat", prefixes=["/", ".", "?", "-"])
-    & ~filters.private)
-async def addchat(_, message): 
-    kukidb = MongoClient(MONGO_URL)
-    
-    kuki = kukidb["KukiDb"]["Kuki"] 
-    if message.from_user:
-        user = message.from_user.id
-        chat_id = message.chat.id
-        if user not in (
-            await is_admins(chat_id)
-        ):
-            return await message.reply_text(
-                "You are not admin"
-            )
-    is_kuki = kuki.find_one({"chat_id": message.chat.id})
-    if not kuki:
-        toggle.insert_one({"chat_id": message.chat.id})
-        await message.reply_text(f"✅ | Successfully\nKuki Chatbot of this Group is set to @{message.chat.username}\n Requested by [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n© @MetaVoid")
-    else:
-        await message.reply_text(f"Already Setup Kuki Chatbot of this Group Is @{message.chat.username}")
-
-
-@bot.on_message(
-    filters.command("removechat", prefixes=["/", ".", "?", "-"])
-    & ~filters.private)
-async def rmchat(_, message): 
-    kukidb = MongoClient(MONGO_URL)
-    
-    kuki = kukidb["KukiDb"]["Kuki"] 
-    if message.from_user:
-        user = message.from_user.id
-        chat_id = message.chat.id
-        if user not in (
-            await is_admins(chat_id)
-        ):
-            return await message.reply_text(
-                "You are not admin"
-            )
-    is_kuki = kuki.find_one({"chat_id": message.chat.id})
-    if not is_kuki:
-        await message.reply_text("Already Kuki ChatBot Disable")
-    else:
-        kuki.delete_one({"chat_id": message.chat.id})
-        await message.reply_text("✅ | Kuki Chatbot is disable!")
 
 
 @bot.on_message(
@@ -87,24 +32,17 @@ async def kukiai(client: Client, message: Message):
   msg = message.text
   chat_id = message.chat.id
 
-  kukidb = MongoClient(MONGO_URL)
-    
-  kuki = kukidb["KukiDb"]["Kuki"] 
+  Kuki =   requests.get(f"https://kukiapi.xyz/api/message={msg}").json()
 
-  is_kuki = kuki.find_one({"chat_id": message.chat.id})
-  if is_kuki:
+  moezilla = f"{Kuki['reply']}"
 
-      Kuki =   requests.get(f"https://kukiapi.xyz/api/message={msg}").json()
-
-      moezilla = f"{Kuki['reply']}"
-
-      self = await bot.get_me()
-      bot_id = self.id
-      if not message.reply_to_message.from_user.id == bot_id:
-          return
+  self = await bot.get_me()
+  bot_id = self.id
+  if not message.reply_to_message.from_user.id == bot_id:
+         return
       
-      await client.send_chat_action(message.chat.id, "typing")
-      await message.reply_text(moezilla)
+  await client.send_chat_action(message.chat.id, "typing")
+  await message.reply_text(moezilla)
 
 
 @bot.on_message(
