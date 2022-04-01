@@ -12,6 +12,10 @@
             "description": "telegram api id here",
             "required": true
         },
+        "KUKI_API": {
+            "description": "join @metavoidsupport",
+            "required": true
+        },
         "API_HASH": {
             "description": "telegram api hash here",
             "required": true
