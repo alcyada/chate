@@ -21,9 +21,4 @@
             "required": true
         }
     },
-    "addons": [
-        {
-            "plan": "heroku-postgresql"
-        }
-    ]
 }
