@@ -1,6 +1,5 @@
 from pyrogram import Client, filters ,idle
 from pyrogram.types import *
-from pymongo import MongoClient
 import requests
 import os
 import re
