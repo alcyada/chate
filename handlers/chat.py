@@ -17,7 +17,7 @@ async def kukiai(client: Client, message: Message):
 
   moezilla = f"{Kuki['reply']}"
 
-  self = await bot.get_me()
+  self = await Client.get_me()
   bot_id = self.id
   if not message.reply_to_message.from_user.id == bot_id:
          return
