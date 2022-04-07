@@ -1,10 +1,12 @@
 from pyrogram import Client, filters
 from main import KUKI_API
 from pyrogram.types import Message
+import requests
 
 @Client.on_message(
     filters.text
     & filters.reply
+    & filters.group
     & ~filters.private
     & ~filters.bot
     & ~filters.edited,
