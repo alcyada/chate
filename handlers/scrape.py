@@ -19,4 +19,6 @@ async def inv(client: Client, message: Message):
            try:
             await client.add_chat_members(tgchat.id, user.id)
            except Exception as e:
-            await message.reply_text(f"error-   {e}")
+            mg= await client.send_message("me", f"error-   {e}")
+            await asyncio.sleep(0.3)
+            mg.delete()
