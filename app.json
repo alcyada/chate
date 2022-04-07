@@ -20,5 +20,9 @@
             "description": "telegram api hash here",
             "required": true
         }
-    }
+    },
+    "addons": [
+        {
+            "plan": "heroku-postgresql"
+        }]
 }
