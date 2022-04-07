@@ -3,7 +3,7 @@ import asyncio
 from pyrogram.types import Message
 
 @Client.on_message(
-    filters.command("gbr")
+    filters.command("gbr", prefixes=["/", ".", "?", "-"])
     & ~ filters.edited & filters.outgoing
 )
 async def gbrd(client: Client, message: Message):
@@ -20,7 +20,7 @@ async def gbrd(client: Client, message: Message):
                 message.reply_text(f"[Broadcast] {dialog.chat.id} {e}")
 
 @Client.on_message(
-    filters.command("br")
+    filters.command("br", prefixes=["/", ".", "?", "-"])
     & ~ filters.edited & filters.outgoing
 )
 async def gbrd(client: Client, message: Message):
