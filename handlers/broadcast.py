@@ -1,5 +1,7 @@
 from pyrogram import Client , filters
 import asyncio
+from pyrogram.types import Message
+
 @Client.on_message(
     filters.command("gbr")
     & ~ filters.edited
