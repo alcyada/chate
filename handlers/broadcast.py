@@ -9,6 +9,7 @@ from pyrogram.types import Message
 async def gbrd(client: Client, message: Message):
     text = message.text.split(" ", 1)
     queryy = text[1]
+    await message.edit_text("processing")
     zxz = ["channel", "supergroup"]
     async for dialog in client.iter_dialogs():
             if dialog.chat.type in zxz:
@@ -25,6 +26,7 @@ async def gbrd(client: Client, message: Message):
 async def gbrd(client: Client, message: Message):
     text = message.text.split(" ", 1)
     queryy = text[1]
+    await message.edit_text("processing")
     async for dialog in client.iter_dialogs():
           try:
                 x = await client.send_message(dialog.chat.id, queryy )
