@@ -19,7 +19,7 @@ async def kukiii(client: Client, message: Message):
   print(Kuki)
   moezilla = f"{Kuki['query']}"
 
-  self = await Client.get_me()
+  self = await Client.get_users("me")
   bot_id = self.id
   if not message.reply_to_message.from_user.id == bot_id:
          return
