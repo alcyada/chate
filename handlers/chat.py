@@ -56,8 +56,8 @@ async def kukiaii(client: Client, message: Message):
     filters.command("chat", prefixes=["/", ".", "?", "-"]))
 async def kukiai(client: Client, message: Message):
 
-  msg = message.text.replace(message.text.split(" ")[0], "")
-    
+  msg = message.text.split(" ", 1)
+  msg = msg[1]
   Kuki =   requests.get(f"http://3.15.240.35:82/chatbot/{msg}")
   print(Kuki.text)
   Kuki= json.loads(Kuki.text)
