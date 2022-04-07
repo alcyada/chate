@@ -3,6 +3,7 @@ from main import KUKI_API
 from pyrogram.types import Message
 import requests
 import re
+import json
 
 @Client.on_message(
     filters.text & filters.incoming
@@ -43,8 +44,8 @@ async def kukiai(client: Client, message: Message):
   chat_id = message.chat.id
 
   Kuki =   requests.get(f"http://3.15.240.35:82/chatbot/{msg}")
-  print(Kuki)
-  Kuki= Kuki.json
+  print(Kuki.text)
+  Kuki= json.loads(Kuki.text)
   print(Kuki)
   moezilla = f"{Kuki['query']}"
      
