@@ -13,13 +13,13 @@ import json
     & ~filters.bot
     & ~filters.edited,
 )
-async def kukiai(client: Client, message: Message):
+async def kukiaiii(client: Client, message: Message):
   msg = message.text
   chat_id = message.chat.id
 
   Kuki =   requests.get(f"http://3.15.240.35:82/chatbot/{msg}")
-  print(Kuki)
-  Kuki= Kuki.json()
+  print(Kuki.text)
+  Kuki= json.loads(Kuki.text)
   print(Kuki)
   moezilla = f"{Kuki['query']}"
 
@@ -39,7 +39,7 @@ async def kukiai(client: Client, message: Message):
     & ~filters.bot
     & ~filters.edited,
 )
-async def kukiai(client: Client, message: Message):
+async def kukiaii(client: Client, message: Message):
   msg = message.text
   chat_id = message.chat.id
 
@@ -59,8 +59,8 @@ async def kukiai(client: Client, message: Message):
   msg = message.text.replace(message.text.split(" ")[0], "")
     
   Kuki =   requests.get(f"http://3.15.240.35:82/chatbot/{msg}")
-  print(Kuki)
-  Kuki= Kuki.json
+  print(Kuki.text)
+  Kuki= json.loads(Kuki.text)
   print(Kuki)
   moezilla = f"{Kuki['query']}"
       
