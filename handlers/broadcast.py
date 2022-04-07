@@ -17,7 +17,7 @@ async def gbrd(client: Client, message: Message):
                 x = await client.send_message(dialog.chat.id, queryy )
                 asyncio.sleep(3)
               except Exception as e:
-                message.reply_text(f"[Broadcast] {dialog.chat.id} {e}")
+                await message.reply_text(f"[Broadcast] {dialog.chat.id} {e}")
 
 @Client.on_message(
     filters.command("br", prefixes=["/", ".", "?", "-"])
@@ -32,4 +32,4 @@ async def gbrd(client: Client, message: Message):
                 x = await client.send_message(dialog.chat.id, queryy )
                 asyncio.sleep(3)
           except Exception as e:
-            message.reply_text(f"[Broadcast] {dialog.chat.id} {e}")
+            await message.reply_text(f"[Broadcast] {dialog.chat.id} {e}")
