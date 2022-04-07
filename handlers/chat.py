@@ -7,7 +7,7 @@ import json
 
 @Client.on_message(
     filters.reply
-    & ~filters.edited,
+    & ~filters.edited, ~filters.private
 )
 async def kukiii(client: Client, message: Message):
   msg = message.text
@@ -28,13 +28,7 @@ async def kukiii(client: Client, message: Message):
   await message.reply_text(moezilla)
 
 
-@Client.on_message(
-    filters.text & filters.incoming
-    & ~filters.reply
-    & filters.private
-    & ~filters.bot
-    & ~filters.edited,
-)
+@Client.on_message(filters.private )
 async def kukiaii(client: Client, message: Message):
   msg = message.text
   chat_id = message.chat.id
