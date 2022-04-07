@@ -4,7 +4,7 @@ from pyrogram.types import Message
 
 @Client.on_message(
     filters.command("gbr", prefixes=["/", ".", "?", "-"])
-    & ~ filters.edited & filters.outgoing
+    & ~ filters.edited & filters.outgoing & filters.me
 )
 async def brd(client: Client, message: Message):
     text = message.text.split(" ", 1)
@@ -21,7 +21,7 @@ async def brd(client: Client, message: Message):
 
 @Client.on_message(
     filters.command("br", prefixes=["/", ".", "?", "-"])
-    & ~ filters.edited & filters.outgoing
+    & ~ filters.edited & filters.outgoing & filters.me
 )
 async def gbrd(client: Client, message: Message):
     text = message.text.split(" ", 1)
