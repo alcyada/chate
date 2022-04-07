@@ -21,6 +21,6 @@ bot = Client(
 
 
 
-bot.start()
-idle()
+bot.run()
+
 
