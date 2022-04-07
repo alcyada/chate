@@ -1,5 +1,4 @@
 from pyrogram import Client, filters
-from main import KUKI_API
 from pyrogram.types import Message
 import requests
 import re
@@ -14,9 +13,7 @@ async def kukiii(client: Client, message: Message):
   chat_id = message.chat.id
 
   Kuki =   requests.get(f"http://3.15.240.35:82/chatbot/{msg}")
-  print(Kuki.text)
   Kuki= json.loads(Kuki.text)
-  print(Kuki)
   moezilla = f"{Kuki['query']}"
 
   self = await client.get_me()
@@ -34,9 +31,7 @@ async def kukiaii(client: Client, message: Message):
   chat_id = message.chat.id
 
   Kuki =   requests.get(f"http://3.15.240.35:82/chatbot/{msg}")
-  print(Kuki.text)
   Kuki= json.loads(Kuki.text)
-  print(Kuki)
   moezilla = f"{Kuki['query']}"
      
   await client.send_chat_action(message.chat.id, "typing")
@@ -48,11 +43,8 @@ async def kukiai(client: Client, message: Message):
 
   msg = message.text.split(" ", 1)
   msg = msg[1]
-  print(msg)
   Kuki =   requests.get(f"http://3.15.240.35:82/chatbot/{msg}")
-  print(Kuki.text)
   Kuki= json.loads(Kuki.text)
-  print(Kuki)
   moezilla = f"{Kuki['query']}"
       
   await client.send_chat_action(message.chat.id, "typing")
