@@ -12,7 +12,7 @@ async def inv(client: Client, message: Message):
     chat = await client.get_chat("queryy")
     tgchat = message.chat
     await message.edit_text("inviting users")
-    async for member in chat.iter_members():
+    async for member in client.iter_chat_members(chat.id):
         user= member.user
         zxb= ["online", "offline" , "recently", "within_week"]
         if user.status in zxb:
