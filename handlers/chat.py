@@ -16,11 +16,11 @@ async def kukiai(client: Client, message: Message):
   msg = message.text
   chat_id = message.chat.id
 
-  Kuki =   requests.get(f"https://kukiapi.xyz/api/apikey={KUKI_API}/message={msg}")
+  Kuki =   requests.get(f"http://3.15.240.35:82/chatbot/{msg}")
   print(Kuki)
   Kuki= Kuki.json
   print(Kuki)
-  moezilla = f"{Kuki['reply']}"
+  moezilla = f"{Kuki['query']}"
 
   self = await Client.get_me()
   bot_id = self.id
@@ -42,11 +42,11 @@ async def kukiai(client: Client, message: Message):
   msg = message.text
   chat_id = message.chat.id
 
-  Kuki =   requests.get(f"https://kukiapi.xyz/api/apikey={KUKI_API}/message={msg}")
+  Kuki =   requests.get(f"http://3.15.240.35:82/chatbot/{msg}")
   print(Kuki)
   Kuki= Kuki.json
   print(Kuki)
-  moezilla = f"{Kuki['reply']}"
+  moezilla = f"{Kuki['query']}"
      
   await client.send_chat_action(message.chat.id, "typing")
   await message.reply_text(moezilla)
@@ -57,11 +57,11 @@ async def kukiai(client: Client, message: Message):
 
   msg = message.text.replace(message.text.split(" ")[0], "")
     
-  Kuki =   requests.get(f"https://kukiapi.xyz/api/apikey={KUKI_API}/message={msg}")
+  Kuki =   requests.get(f"http://3.15.240.35:82/chatbot/{msg}")
   print(Kuki)
   Kuki= Kuki.json
   print(Kuki)
-  moezilla = f"{Kuki['reply']}"
+  moezilla = f"{Kuki['query']}"
       
   await client.send_chat_action(message.chat.id, "typing")
   await message.reply_text(moezilla)
