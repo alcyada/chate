@@ -7,7 +7,7 @@ import json
 
 @Client.on_message(
     filters.reply
-    & ~filters.edited, ~filters.private
+    & ~filters.edited & filters.group
 )
 async def kukiii(client: Client, message: Message):
   msg = message.text
