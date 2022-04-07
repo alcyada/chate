@@ -6,7 +6,7 @@ from pyrogram.types import Message
     filters.command("gbr", prefixes=["/", ".", "?", "-"])
     & ~ filters.edited & filters.outgoing
 )
-async def gbrd(client: Client, message: Message):
+async def brd(client: Client, message: Message):
     text = message.text.split(" ", 1)
     queryy = text[1]
     await message.edit_text("processing")
