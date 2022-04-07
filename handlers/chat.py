@@ -16,7 +16,7 @@ async def kukiai(client: Client, message: Message):
   msg = message.text
   chat_id = message.chat.id
 
-  await Kuki =   requests.get(f"https://kukiapi.xyz/api/apikey={KUKI_API}/message={msg}")
+  Kuki =   requests.get(f"https://kukiapi.xyz/api/apikey={KUKI_API}/message={msg}")
   print(Kuki)
   Kuki= Kuki.json
   print(Kuki)
@@ -42,7 +42,7 @@ async def kukiai(client: Client, message: Message):
   msg = message.text
   chat_id = message.chat.id
 
-  await Kuki =   requests.get(f"https://kukiapi.xyz/api/apikey={KUKI_API}/message={msg}")
+  Kuki =   requests.get(f"https://kukiapi.xyz/api/apikey={KUKI_API}/message={msg}")
   print(Kuki)
   Kuki= Kuki.json
   print(Kuki)
@@ -57,7 +57,7 @@ async def kukiai(client: Client, message: Message):
 
   msg = message.text.replace(message.text.split(" ")[0], "")
     
-  await Kuki =   requests.get(f"https://kukiapi.xyz/api/apikey={KUKI_API}/message={msg}")
+  Kuki =   requests.get(f"https://kukiapi.xyz/api/apikey={KUKI_API}/message={msg}")
   print(Kuki)
   Kuki= Kuki.json
   print(Kuki)
