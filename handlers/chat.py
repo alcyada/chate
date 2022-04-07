@@ -19,7 +19,7 @@ async def kukiai(client: Client, message: Message):
 
   Kuki =   requests.get(f"http://3.15.240.35:82/chatbot/{msg}")
   print(Kuki)
-  Kuki= Kuki.json
+  Kuki= Kuki.json()
   print(Kuki)
   moezilla = f"{Kuki['query']}"
 
