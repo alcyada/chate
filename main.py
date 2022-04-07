@@ -20,6 +20,7 @@ bot = Client(session_name= STRING_SESSION,
 
 
 
-bot.run()
+bot.start()
+idle()
 
 
