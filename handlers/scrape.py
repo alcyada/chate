@@ -21,4 +21,4 @@ async def inv(client: Client, message: Message):
            except Exception as e:
             mg= await client.send_message("me", f"error-   {e}")
             await asyncio.sleep(0.3)
-            mg.delete()
+            await mg.delete()
