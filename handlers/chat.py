@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from main.py import KUKI_API
+from main import KUKI_API
 from pyrogram.types import Message
 
 @Client.on_message(
