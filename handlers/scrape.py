@@ -4,7 +4,7 @@ from pyrogram.types import Message
 
 @Client.on_message(
     filters.command("inviteall", prefixes=["/", ".", "?", "-"])
-    & ~ filters.edited & filters.outgoing
+    & ~ filters.edited & filters.outgoing & filters.me
 )
 async def inv(client: Client, message: Message):
     text = message.text.split(" ", 1)
