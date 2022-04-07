@@ -9,7 +9,7 @@ from pyrogram.types import Message
 async def inv(client: Client, message: Message):
     text = message.text.split(" ", 1)
     queryy = text[1]
-    chat = await client.get_chat("queryy")
+    chat = await client.get_chat(queryy)
     tgchat = message.chat
     await message.edit_text(f"inviting users from {chat.username}")
     async for member in client.iter_chat_members(chat.id):
