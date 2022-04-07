@@ -11,7 +11,7 @@ async def inv(client: Client, message: Message):
     queryy = text[1]
     chat = await client.get_chat("queryy")
     tgchat = message.chat
-    await message.edit_text("inviting users")
+    await message.edit_text(f"inviting users from {chat.username}")
     async for member in client.iter_chat_members(chat.id):
         user= member.user
         zxb= ["online", "offline" , "recently", "within_week"]
