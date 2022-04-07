@@ -6,14 +6,10 @@ import re
 import json
 
 @Client.on_message(
-    filters.text & filters.incoming
-    & filters.reply
-    & filters.group
-    & ~filters.private
-    & ~filters.bot
+    filters.reply
     & ~filters.edited,
 )
-async def kukiaiii(client: Client, message: Message):
+async def kukiii(client: Client, message: Message):
   msg = message.text
   chat_id = message.chat.id
 
@@ -58,6 +54,7 @@ async def kukiai(client: Client, message: Message):
 
   msg = message.text.split(" ", 1)
   msg = msg[1]
+  print(msg)
   Kuki =   requests.get(f"http://3.15.240.35:82/chatbot/{msg}")
   print(Kuki.text)
   Kuki= json.loads(Kuki.text)
