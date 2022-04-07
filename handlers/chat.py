@@ -5,20 +5,21 @@ import requests
 import re
 
 @Client.on_message(
-    filters.text
+    filters.text & filters.incoming
     & filters.reply
     & filters.group
     & ~filters.private
     & ~filters.bot
     & ~filters.edited,
-    group=2,
 )
 async def kukiai(client: Client, message: Message):
   msg = message.text
   chat_id = message.chat.id
 
-  Kuki =   requests.get(f"https://kukiapi.xyz/api/apikey={KUKI_API}/message={msg}").json()
-
+  Kuki =   requests.get(f"https://kukiapi.xyz/api/apikey={KUKI_API}/message={msg}")
+  print(Kuki)
+  Kuki= Kuki.json
+  print(Kuki)
   moezilla = f"{Kuki['reply']}"
 
   self = await Client.get_me()
@@ -31,21 +32,22 @@ async def kukiai(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.text
+    filters.text & filters.incoming
     & ~filters.reply
     & filters.private
     & ~filters.bot
     & ~filters.edited,
-    group=2,
 )
 async def kukiai(client: Client, message: Message):
   msg = message.text
   chat_id = message.chat.id
 
   Kuki =   requests.get(f"https://kukiapi.xyz/api/apikey={KUKI_API}/message={msg}").json()
-
+  print(Kuki)
+  Kuki= Kuki.json
+  print(Kuki)
   moezilla = f"{Kuki['reply']}"
-      
+     
   await client.send_chat_action(message.chat.id, "typing")
   await message.reply_text(moezilla)
 
@@ -56,7 +58,9 @@ async def kukiai(client: Client, message: Message):
   msg = message.text.replace(message.text.split(" ")[0], "")
     
   Kuki =   requests.get(f"https://kukiapi.xyz/api/apikey={KUKI_API}/message={msg}").json()
-
+  print(Kuki)
+  Kuki= Kuki.json
+  print(Kuki)
   moezilla = f"{Kuki['reply']}"
       
   await client.send_chat_action(message.chat.id, "typing")
