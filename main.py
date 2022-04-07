@@ -13,7 +13,7 @@ bot = Client(
     STRING_SESSION,
     api_id = API_ID,
     api_hash = API_HASH ,
-    plugins=dict(root="handlers"),
+    plugins=dict(root="handlers")
 )
 
 
